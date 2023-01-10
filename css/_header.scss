@@ -1,0 +1,113 @@
+.header {
+    background: rgba(16, 16, 29, 0.9);
+    padding-top: 40px;
+    padding-bottom: 39px;
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+
+    @media (max-width: $screen-sm) {
+        padding-top: 5px;
+        padding-bottom: 15px;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &-logo {
+        height: 21px;
+        width: 245px;
+
+        @media (max-width: $screen-sm) {
+            width: 180px;
+        }
+
+        svg {
+            height: 21px;
+            width: 100%;
+        }
+    }
+    
+    &__menu {
+        display: inline-flex;
+        justify-content: flex-end;
+    
+        &--burger {
+            display: none;
+            width: 40px;
+
+            span {
+                display: block;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                height: 3px;
+                width: 100%;
+                border-radius: 3px;
+                background: $firm-color;
+            }
+
+            @media (max-width: $screen-sm) {
+                display: inline-block;
+                height: 40px;
+            }
+        }
+
+        &--list {
+            display: inline-block;
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -ms-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+    
+            @media (max-width: $screen-sm) {
+                position: absolute;
+                top:60px;
+                right: -100%;
+                height: calc(100vh + 85px);
+                background: #3D4050;
+                width: 320px;
+                
+            }
+
+            li {
+                display: inline-block;
+                margin-right: 30px;
+                margin-left: 25px;
+    
+                @media (max-width: $screen-sm) {
+                    width: 100%;
+                    padding: 0 15px;
+                    line-height: 40px;
+                    border-bottom: 1px solid $color-white;
+                }
+
+                a {
+                    color: $color-white;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    font-size: 13px;
+                    line-height: 16px;
+                }
+    
+                &:hover a,
+                &.active a {
+                    color: $firm-color;
+                }
+            }
+          
+            li:last-child {
+                margin-right: 0;
+            }
+        }
+
+        .menu--open + &--list{
+            right: 0;
+        }
+    }
+}
